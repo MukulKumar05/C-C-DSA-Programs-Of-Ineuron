@@ -10,6 +10,7 @@ int winSituation(int [4][4]);
 void regame(char []);
 void gameImplementation(char []);
 void store1To15RandomlyInMatrix(int [4][4]);
+void printPossibleChoices();
 
 void gameInstructions(char name[])
 {
@@ -159,7 +160,7 @@ void gameImplementation(char name[])
             printf("\nPossible Choices:\n");
             printf("\t1. Press r to move Right\n");
             printf("\t2. Press d to move Down\n");
-            printf("\t3. Exit\n");
+            printf("\t3. Press e to Exit\n");
             printf("Select your choice....");
             movement = getch();
             switch(movement)
@@ -185,7 +186,7 @@ void gameImplementation(char name[])
             printf("\nPossible Choices:\n");
             printf("\t1. Press l to move Left\n");
             printf("\t2. Press d to move Down\n");
-            printf("\t3. Exit\n");
+            printf("\t3. Press e to Exit\n");
             printf("Select your choice....");
             movement = getch();
             switch(movement)
@@ -211,7 +212,7 @@ void gameImplementation(char name[])
             printf("\nPossible Choices:\n");
             printf("\t1. Press r to move Right\n");
             printf("\t2. Press u to move Up\n");
-            printf("\t3. Exit\n");
+            printf("\t3. Press e to Exit\n");
             printf("Select your choice....");
             movement = getch();
             switch(movement)
@@ -237,7 +238,7 @@ void gameImplementation(char name[])
             printf("\nPossible Choices:\n");
             printf("\t1. Press l to move Left\n");
             printf("\t2. Press u to move Up\n");
-            printf("\t3. Exit\n");
+            printf("\t3. Press e to Exit\n");
             printf("Select your choice....");
             movement = getch();
             switch(movement)
@@ -264,7 +265,7 @@ void gameImplementation(char name[])
             printf("\t1. Press l to move Left\n");
             printf("\t2. Press u to move Up\n");
             printf("\t3. Press r to move Right\n");
-            printf("\t4. Exit\n");
+            printf("\t4. Press e to Exit\n");
             printf("Select your choice....");
             movement = getch();
             switch(movement)
@@ -296,7 +297,7 @@ void gameImplementation(char name[])
             printf("\t1. Press l to move Left\n");
             printf("\t2. Press u to move Up\n");
             printf("\t3. Press d to move Down\n");
-            printf("\t4. Exit\n");
+            printf("\t4. Press e to Exit\n");
             printf("Select your choice....");
             movement = getch();
             switch(movement)
@@ -328,7 +329,7 @@ void gameImplementation(char name[])
             printf("\t1. Press l to move Left\n");
             printf("\t2. Press d to move Down\n");
             printf("\t3. Press r to move Right\n");
-            printf("\t4. Exit\n");
+            printf("\t4. Press e to Exit\n");
             printf("Select your choice....");
             movement = getch();
             switch(movement)
@@ -360,7 +361,7 @@ void gameImplementation(char name[])
             printf("\t1. Press r to move Right\n");
             printf("\t2. Press u to move Up\n");
             printf("\t3. Press d to move Down\n");
-            printf("\t4. Exit\n");
+            printf("\t4. Press e to Exit\n");
             printf("Select your choice....");
             movement = getch();
             switch(movement)
@@ -393,7 +394,7 @@ void gameImplementation(char name[])
             printf("\t2. Press u to move Up\n");
             printf("\t3. Press d to move Down\n");
             printf("\t4. Press l to move Left\n");
-            printf("\t5. Exit\n");
+            printf("\t5. Press e to Exit\n");
             printf("Select your choice....");
             movement = getch();
             switch(movement)
