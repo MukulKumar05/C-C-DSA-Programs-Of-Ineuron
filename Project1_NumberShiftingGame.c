@@ -11,6 +11,47 @@ void regame(char []);
 void gameImplementation(char []);
 void store1To15RandomlyInMatrix(int [4][4]);
 void printPossibleChoices();
+void moveleftInstruction();
+void moverightInstruction();
+void moveupInstruction();
+void movedownInstruction();
+void exitInstruction();
+void selectChoiceInstruction();
+
+void printPossibleChoices()
+{
+    printf("\nPossible Choices:\n"); 
+}
+
+void moveRightInstruction()
+{
+    printf("\t1. Press r to move Right\n");
+}
+
+void moveLeftInstruction()
+{
+    printf("\t1. Press l to move Left\n");
+}
+
+void moveDownInstruction()
+{
+    printf("\t2. Press d to move Down\n");
+}
+
+void moveUpInstruction()
+{
+    printf("\t2. Press u to move Up\n");
+}
+
+void exitInstruction()
+{
+    printf("\t3. Press e to Exit\n");
+}
+
+void selectChoiceInstruction()
+{
+    printf("Select your choice....");
+}
 
 void gameInstructions(char name[])
 {
@@ -157,11 +198,11 @@ void gameImplementation(char name[])
         
         if (blankRowi == 3 && blankColi == 3)
         {
-            printf("\nPossible Choices:\n");
-            printf("\t1. Press r to move Right\n");
-            printf("\t2. Press d to move Down\n");
-            printf("\t3. Press e to Exit\n");
-            printf("Select your choice....");
+            printPossibleChoices();
+            moveRightInstruction();
+            moveDownInstruction();
+            exitInstruction();
+            selectChoiceInstruction();
             movement = getch();
             switch(movement)
             {
@@ -183,11 +224,11 @@ void gameImplementation(char name[])
         }
         else if(blankRowi == 3 && blankColi == 0)
         {
-            printf("\nPossible Choices:\n");
-            printf("\t1. Press l to move Left\n");
-            printf("\t2. Press d to move Down\n");
-            printf("\t3. Press e to Exit\n");
-            printf("Select your choice....");
+            printPossibleChoices();
+            moveLeftInstruction();
+            moveDownInstruction();
+            exitInstruction();
+            selectChoiceInstruction();
             movement = getch();
             switch(movement)
             {
@@ -209,11 +250,11 @@ void gameImplementation(char name[])
         }
         else if(blankRowi == 0 && blankColi == 3)
         {
-            printf("\nPossible Choices:\n");
-            printf("\t1. Press r to move Right\n");
-            printf("\t2. Press u to move Up\n");
-            printf("\t3. Press e to Exit\n");
-            printf("Select your choice....");
+            printPossibleChoices();
+            moveRightInstruction();
+            moveUpInstruction();
+            exitInstruction();
+            selectChoiceInstruction();
             movement = getch();
             switch(movement)
             {
@@ -235,11 +276,11 @@ void gameImplementation(char name[])
         }
         else if(blankRowi == 0 && blankColi == 0)
         {
-            printf("\nPossible Choices:\n");
-            printf("\t1. Press l to move Left\n");
-            printf("\t2. Press u to move Up\n");
-            printf("\t3. Press e to Exit\n");
-            printf("Select your choice....");
+            printPossibleChoices();
+            moveLeftInstruction();
+            moveUpInstruction();
+            exitInstruction();
+            selectChoiceInstruction();
             movement = getch();
             switch(movement)
             {
@@ -261,12 +302,12 @@ void gameImplementation(char name[])
         }
         else if(blankRowi == 0)
         {
-            printf("\nPossible Choices:\n");
-            printf("\t1. Press l to move Left\n");
-            printf("\t2. Press u to move Up\n");
-            printf("\t3. Press r to move Right\n");
-            printf("\t4. Press e to Exit\n");
-            printf("Select your choice....");
+            printPossibleChoices();
+            moveLeftInstruction();
+            moveUpInstruction();
+            moveRightInstruction();
+            exitInstruction();
+            selectChoiceInstruction();
             movement = getch();
             switch(movement)
             {
@@ -293,12 +334,12 @@ void gameImplementation(char name[])
         }
         else if(blankColi == 0)
         {
-            printf("\nPossible Choices:\n");
-            printf("\t1. Press l to move Left\n");
-            printf("\t2. Press u to move Up\n");
-            printf("\t3. Press d to move Down\n");
-            printf("\t4. Press e to Exit\n");
-            printf("Select your choice....");
+            printPossibleChoices();
+            moveLeftInstruction();
+            moveUpInstruction();
+            moveDownInstruction();
+            exitInstruction();
+            selectChoiceInstruction();
             movement = getch();
             switch(movement)
             {
@@ -325,12 +366,12 @@ void gameImplementation(char name[])
         }
         else if(blankRowi == 3)
         {
-            printf("\nPossible Choices:\n");
-            printf("\t1. Press l to move Left\n");
-            printf("\t2. Press d to move Down\n");
-            printf("\t3. Press r to move Right\n");
-            printf("\t4. Press e to Exit\n");
-            printf("Select your choice....");
+            printPossibleChoices();
+            moveLeftInstruction();
+            moveDownInstruction();
+            moveRightInstruction();
+            exitInstruction();
+            selectChoiceInstruction();
             movement = getch();
             switch(movement)
             {
@@ -357,12 +398,12 @@ void gameImplementation(char name[])
         }
         else if(blankColi == 3)
         {
-            printf("\nPossible Choices:\n");
-            printf("\t1. Press r to move Right\n");
-            printf("\t2. Press u to move Up\n");
-            printf("\t3. Press d to move Down\n");
-            printf("\t4. Press e to Exit\n");
-            printf("Select your choice....");
+            printPossibleChoices();
+            moveRightInstruction();
+            moveUpInstruction();
+            moveDownInstruction();
+            exitInstruction();
+            selectChoiceInstruction();
             movement = getch();
             switch(movement)
             {
@@ -389,13 +430,13 @@ void gameImplementation(char name[])
         }
         else
         {
-            printf("\nPossible Choices:\n");
-            printf("\t1. Press r to move Right\n");
-            printf("\t2. Press u to move Up\n");
-            printf("\t3. Press d to move Down\n");
-            printf("\t4. Press l to move Left\n");
-            printf("\t5. Press e to Exit\n");
-            printf("Select your choice....");
+            printPossibleChoices();
+            moveRightInstruction();
+            moveUpInstruction();
+            moveDownInstruction();
+            moveLeftInstruction();
+            exitInstruction();
+            selectChoiceInstruction();
             movement = getch();
             switch(movement)
             {
