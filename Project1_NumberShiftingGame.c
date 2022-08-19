@@ -17,6 +17,44 @@ void moveupInstruction();
 void movedownInstruction();
 void exitInstruction();
 void selectChoiceInstruction();
+void rightMove(int [4][4], int *, int *, int *);
+void leftMove(int [4][4], int *, int *, int *);
+void downMove(int [4][4], int *, int *, int *);
+void upMove(int [4][4], int *, int *, int *);
+void exitGame();
+
+void rightMove(int matrix[4][4], int *blankColi, int *blankRowi, int *remainingMoves)
+{
+    swapNums(&matrix[(*blankRowi)][(*blankColi)], &matrix[(*blankRowi)][(*blankColi) - 1]);
+    *remainingMoves = (*remainingMoves) - 1;
+    *blankColi = (*blankColi) - 1; 
+}
+
+void leftMove(int matrix[4][4], int *blankColi, int *blankRowi, int *remainingMoves)
+{
+    swapNums(&matrix[(*blankRowi)][(*blankColi)], &matrix[(*blankRowi)][(*blankColi) + 1]);
+    *remainingMoves = (*remainingMoves) - 1;
+    *blankColi = (*blankColi) + 1;
+}
+
+void downMove(int matrix[4][4], int *blankColi, int *blankRowi, int *remainingMoves)
+{
+    swapNums(&matrix[(*blankRowi)][(*blankColi)], &matrix[(*blankRowi) - 1][(*blankColi)]);
+    *remainingMoves = (*remainingMoves) - 1;
+    *blankRowi = (*blankRowi) - 1;
+}
+
+void upMove(int matrix[4][4], int *blankColi, int *blankRowi, int *remainingMoves)
+{
+    swapNums(&matrix[(*blankRowi)][(*blankColi)], &matrix[(*blankRowi) + 1][(*blankColi)]);
+    *remainingMoves = (*remainingMoves) - 1;
+    *blankRowi = (*blankRowi) + 1;
+}
+
+void exitGame()
+{
+    exit(0);
+}
 
 void printPossibleChoices()
 {
@@ -25,27 +63,27 @@ void printPossibleChoices()
 
 void moveRightInstruction()
 {
-    printf("\t1. Press r to move Right\n");
+    printf("\tPress r to move Right\n");
 }
 
 void moveLeftInstruction()
 {
-    printf("\t1. Press l to move Left\n");
+    printf("\tPress l to move Left\n");
 }
 
 void moveDownInstruction()
 {
-    printf("\t2. Press d to move Down\n");
+    printf("\tPress d to move Down\n");
 }
 
 void moveUpInstruction()
 {
-    printf("\t2. Press u to move Up\n");
+    printf("\tPress u to move Up\n");
 }
 
 void exitInstruction()
 {
-    printf("\t3. Press e to Exit\n");
+    printf("\tPress e to Exit\n");
 }
 
 void selectChoiceInstruction()
@@ -144,7 +182,7 @@ void regame(char name[])
             gameImplementation(name);
             break;
         default:
-            exit(0);
+            exitGame();
     }
 }
 
@@ -207,17 +245,13 @@ void gameImplementation(char name[])
             switch(movement)
             {
                 case 'r':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi - 1]);
-                    remainingMoves--;
-                    blankColi--;
+                    rightMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'd':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi - 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi--;
+                    downMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'e':
-                    exit(0);
+                    exitGame();
                 default:
                     printf("");
             }
@@ -233,17 +267,13 @@ void gameImplementation(char name[])
             switch(movement)
             {
                 case 'l':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi + 1]);
-                    remainingMoves--;
-                    blankColi++;
+                    leftMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'd':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi - 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi--;
+                    downMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'e':
-                    exit(0);
+                    exitGame();
                 default:
                     printf("");
             }
@@ -259,17 +289,13 @@ void gameImplementation(char name[])
             switch(movement)
             {
                 case 'r':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi - 1]);
-                    remainingMoves--;
-                    blankColi--;
+                    rightMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'u':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi + 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi++;
+                    upMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'e':
-                    exit(0);
+                    exitGame();
                 default:
                     printf("");
             }
@@ -285,17 +311,13 @@ void gameImplementation(char name[])
             switch(movement)
             {
                 case 'l':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi + 1]);
-                    remainingMoves--;
-                    blankColi++;
+                    leftMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'u':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi + 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi++;
+                    upMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'e':
-                    exit(0);
+                    exitGame();
                 default:
                     printf("");
             }
@@ -312,22 +334,16 @@ void gameImplementation(char name[])
             switch(movement)
             {
                 case 'l':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi + 1]);
-                    remainingMoves--;
-                    blankColi++;
+                    leftMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'u':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi + 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi++;
+                    upMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'r':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi - 1]);
-                    remainingMoves--;
-                    blankColi--;
+                    rightMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'e':
-                    exit(0);
+                    exitGame();
                 default:
                     printf("");
             }
@@ -344,22 +360,16 @@ void gameImplementation(char name[])
             switch(movement)
             {
                 case 'l':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi + 1]);
-                    remainingMoves--;
-                    blankColi++;
+                    leftMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'u':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi + 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi++;
+                    upMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'd':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi - 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi--;
+                    downMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'e':
-                    exit(0);
+                    exitGame();
                 default:
                     printf("");
             }
@@ -376,22 +386,16 @@ void gameImplementation(char name[])
             switch(movement)
             {
                 case 'l':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi + 1]);
-                    remainingMoves--;
-                    blankColi++;
+                    leftMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'd':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi - 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi--;
+                    downMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'r':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi - 1]);
-                    remainingMoves--;
-                    blankColi--;
+                    rightMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'e':
-                    exit(0);
+                    exitGame();
                 default:
                     printf("");
             }
@@ -408,22 +412,16 @@ void gameImplementation(char name[])
             switch(movement)
             {
                 case 'r':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi - 1]);
-                    remainingMoves--;
-                    blankColi--;
+                    rightMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'u':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi + 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi++;
+                    upMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'd':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi - 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi--;
+                    downMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'e':
-                    exit(0);
+                    exitGame();
                 default:
                     printf("");
             }
@@ -441,27 +439,19 @@ void gameImplementation(char name[])
             switch(movement)
             {
                 case 'r':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi - 1]);
-                    remainingMoves--;
-                    blankColi--;
+                    rightMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'u':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi + 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi++;
+                    upMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'd':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi - 1][blankColi]);
-                    remainingMoves--;
-                    blankRowi--;
+                    downMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'l':
-                    swapNums(&matrix[blankRowi][blankColi], &matrix[blankRowi][blankColi + 1]);
-                    remainingMoves--;
-                    blankColi++;
+                    leftMove(matrix, &blankColi, &blankRowi, &remainingMoves);
                     break;
                 case 'e':
-                    exit(0);
+                    exitGame();
                 default:
                     printf("");
             }
@@ -485,7 +475,6 @@ void gameImplementation(char name[])
         printf("You used all the moves but failed to sort the matrix. Better luck next time!.\n");
     }
     regame(name);
-
 }
 
 void swapNums(int *num1, int *num2)
